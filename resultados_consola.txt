@@ -1,0 +1,137 @@
+Registros: 83 | Defectos únicos: 68 | Duplicados: 15
+tipo_duplicado
+cascada             4
+misma evidencia    11
+
+== FNC: Frecuencia de No Conformidades ==
+
+-- Registros (como el informe): 83 --
+           fi     %  Mayor  Menor
+artefacto                        
+ERS        60  72.3     31     29
+DAS        18  21.7     10      8
+Brief       5   6.0      3      2
+artefacto    ERS  DAS  Brief  Total     %
+criterio                                 
+Coherente     15    4      2     21  25.3
+Completitud   18   11      2     31  37.3
+Correcto      17    2      1     20  24.1
+Pertinencia   10    1      0     11  13.3
+Bloqueantes: 0 -> Cumple (umbral 0%)
+
+-- Defectos únicos: 68 --
+           fi     %  Mayor  Menor
+artefacto                        
+ERS        49  72.1     23     26
+DAS        14  20.6     10      4
+Brief       5   7.4      3      2
+artefacto    ERS  DAS  Brief  Total     %
+criterio                                 
+Coherente     10    4      2     16  23.5
+Completitud   17    8      2     27  39.7
+Correcto      13    1      1     15  22.1
+Pertinencia    9    1      0     10  14.7
+Bloqueantes: 0 -> Cumple (umbral 0%)
+
+-- Incumplimiento por artefacto (ítems No / ítems aplicables) --
+ERS: 60/103 = 58.3% -> No cumple (umbral <= 20%)
+DAS: 18/19 = 94.7% -> No cumple (umbral <= 20%)
+Brief: sin lista propia, no calculable
+
+== DDE y EIC por artefacto ==
+           Unidades  DDE registros  DDE únicos  DDE solo en unidades  EIC registros %  EIC únicos % Unidades conformes (únicos)
+Artefacto                                                                                                                      
+ERS               9           6.67        5.44                  4.33              0.0           0.0                     ninguna
+DAS               9           2.00        1.56                  0.33              0.0          44.4              C1, C2, C3, C4
+Brief             9           0.56        0.56                  0.11             55.6          55.6          R1, R2, R3, R4, R5
+Umbrales: DDE <= 0.15; EIC >= 80.0%
+
+== CEP: Cobertura de Ejecución del PACS ==
+Estado en Jira (24/10/2026): 0.0% -> No cumple (umbral >= 90%)
+Evidencia, solo ejecutadas: 28.6% -> No cumple (umbral >= 90%)
+Evidencia, parciales = 0.5: 50.0% -> No cumple (umbral >= 90%)
+Evidencia, parciales = ejecutadas: 71.4% -> No cumple (umbral >= 90%)
+ clave                                       actividad estado_jira ejecucion_por_evidencia                 responsable_jira
+ KAN-4                      Establecer procesos de SQA    En curso               Ejecutada     Víctor Manuel Ramos González
+ KAN-5              Documentar la planificación de SQA    En curso               Ejecutada     Víctor Manuel Ramos González
+ KAN-6               Evaluar el producto (Brief y ERS)    En curso                 Parcial Gilberto Gabriel Moncada Delgado
+ KAN-7                       Evaluar el producto (DAS)    En curso                 Parcial Gilberto Gabriel Moncada Delgado
+ KAN-8 Ejecutar el plan SQA (Jira; RCA; re-inspección)    En curso            No ejecutada                      Sin asignar
+ KAN-9                Medición de productos y procesos    En curso                 Parcial      Antonio José Cabrera Lezama
+KAN-10                  Gestionar los registros de SQA    En curso            No ejecutada                      Sin asignar
+
+== EDD: Eficacia de Detección de Defectos ==
+Defectos únicos detectados en la inspección estática: 68
+Defectos de los mismos artefactos detectados en fases posteriores: no disponible
+EDD = N/D. Con 0 defectos posteriores daría 100% por construcción, valor sin significado.
+Se calcula al cerrar las fases de construcción y pruebas (PACS 9.2).
+
+== CCI: Comparación y Correlación de Completitud e Inconsistencias ==
+
+-- Comparación entre artefactos --
+           DDE únicos  EIC únicos %  DDE <= 0.15  EIC >= 80%
+Artefacto                                                   
+ERS              5.44           0.0        False       False
+DAS              1.56          44.4        False       False
+Brief            0.56          55.6        False       False
+
+-- Datos por sección (n = 33) --
+ seccion  incompletitud  inconsistencias  inconsistencias_unicas  defectos_totales
+ BR-HIST              0                1                       1                 1
+  BR-IMP              0                1                       1                 1
+  BR-MHU              0                1                       1                 2
+  BR-RES              0                0                       0                 0
+  BR-RAN              0                0                       0                 1
+ BR-PLAN              1                0                       0                 1
+ERS-HIST              0                0                       0                 1
+  ERS-11              0                3                       2                 7
+  ERS-S2              2                0                       0                 1
+ ERS-HU1              1                0                       0                 9
+ ERS-HU2              1                5                       2                17
+ ERS-HU3              1                2                       1                 8
+ ERS-HU4              1                5                       2                17
+   ERS-2              0                2                       1                 7
+ ERS-211              0                1                       1                 3
+ ERS-221              0                1                       1                 3
+ ERS-231              0                1                       1                 4
+ ERS-232              0                1                       1                 4
+ ERS-241              0                2                       2                 5
+DAS-HIST              1                0                       0                 0
+  DAS-11              0                0                       0                 0
+  DAS-12              2                0                       0                 1
+  DAS-13              0                1                       1                 2
+  DAS-14              0                0                       0                 3
+ DAS-151              0                1                       1                 2
+ DAS-152              2                0                       0                 2
+ DAS-153              2                0                       0                 2
+  DAS-21              0                1                       1                 1
+ DAS-211              2                0                       0                 1
+ DAS-212              2                0                       0                 1
+ DAS-213              2                0                       0                 1
+ DAS-214              2                0                       0                 1
+  DAS-22              2                0                       0                 1
+Excluidas: DAS-GEN (7 registros sin sección medible)
+
+-- Correlaciones --
+                                                   Spearman rho  p (Spearman)  Pearson r  p (Pearson)
+Prueba                                                                                               
+Principal: incompletitud (0-2) vs inconsistencias        -0.477        0.0050     -0.246       0.1671
+Inconsistencias únicas (sin duplicados)                  -0.520        0.0019     -0.484       0.0044
+Incompletitud binaria vs inconsistencias                 -0.371        0.0337     -0.055       0.7592
+Sin contar enlaces de diagramas de HU                    -0.642        0.0001     -0.464       0.0066
+Incompletitud vs defectos totales                        -0.171        0.3415     -0.051       0.7795
+Incompletitud vs defectos que no son Completitud         -0.466        0.0063     -0.092       0.6121
+
+Por artefacto (Spearman, principal):
+  ERS: n = 13, rho = 0.036, p = 0.9069
+  DAS: n = 14, rho = -0.664, p = 0.0096
+  Brief: n = 6, rho = -0.447, p = 0.3739
+
+Media de inconsistencias por grado de incompletitud:
+               count  mean  sum
+incompletitud                  
+0                 18  0.94   17
+1                  6  2.00   12
+2                  9  0.00    0
+
+Resultados guardados en /home/claude/repo_sqa/resultados

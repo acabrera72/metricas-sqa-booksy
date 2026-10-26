@@ -1,0 +1,8 @@
+clave,semana,actividad,responsable_pacs,responsable_jira,estado_jira,ejecucion_por_evidencia,evidencia
+KAN-4,4,Establecer procesos de SQA,Líder General; Líder Tecnológico,Víctor Manuel Ramos González,En curso,Ejecutada,Jira con exporte del 24/10; repositorio clonado y conectado a Codacy
+KAN-5,4,Documentar la planificación de SQA,Escriba; Líder Funcional,Víctor Manuel Ramos González,En curso,Ejecutada,PACS v1.0 y Listas de Chequeo refinadas
+KAN-6,5,Evaluar el producto (Brief y ERS),Líder Funcional; Escriba,Gilberto Gabriel Moncada Delgado,En curso,Parcial,Listas 1 a 4 aplicadas en prerrevisión con IA sin verificación manual
+KAN-7,5,Evaluar el producto (DAS),Líder Tecnológico; Escriba,Gilberto Gabriel Moncada Delgado,En curso,Parcial,Lista 5 aplicada en prerrevisión con IA sin verificación manual
+KAN-8,6,Ejecutar el plan SQA (Jira; RCA; re-inspección),Todo el equipo,Sin asignar,En curso,No ejecutada,No hay hallazgos registrados en Jira ni RCA
+KAN-9,6,Medición de productos y procesos,Líder de Métricas; Líder General,Antonio José Cabrera Lezama,En curso,Parcial,Métricas calculadas sobre hallazgos sin verificar
+KAN-10,7,Gestionar los registros de SQA,Escriba; Líder General,Sin asignar,En curso,No ejecutada,Documento final sin consolidar

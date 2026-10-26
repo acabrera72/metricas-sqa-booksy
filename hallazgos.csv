@@ -1,0 +1,84 @@
+id,artefacto,lista,item,hu,criterio,severidad,secciones,unidades,duplicado_de,tipo_duplicado,evidencia
+L1-HU02-HU2,ERS,1,HU-02,HU2,Coherente,Menor,ERS-HU2,HU2,,,Nombre de épica distinto al Brief («Libro»)
+L1-HU02-HU3,ERS,1,HU-02,HU3,Coherente,Menor,ERS-HU3,HU3,,,Nombre de épica distinto al Brief («Libro»)
+L1-HU02-HU4,ERS,1,HU-02,HU4,Coherente,Menor,ERS-HU4,HU4,,,Nombre de épica distinto al Brief («Libro»)
+L1-HU05-HU2,ERS,1,HU-05,HU2,Pertinencia,Menor,ERS-HU2,HU2,,,Dependencia o criterio atado a la base de datos
+L1-HU05-HU4,ERS,1,HU-05,HU4,Pertinencia,Menor,ERS-HU4,HU4,,,Dependencia o criterio atado a la base de datos
+L1-HU06-HU1,ERS,1,HU-06,HU1,Correcto,Menor,ERS-HU1,HU1,,,"Términos vagos (amigable, clara, intuitiva, totalidad)"
+L1-HU06-HU2,ERS,1,HU-06,HU2,Correcto,Menor,ERS-HU2,HU2,,,"Términos vagos (amigable, clara, intuitiva, totalidad)"
+L1-HU06-HU3,ERS,1,HU-06,HU3,Correcto,Menor,ERS-HU3,HU3,,,"Términos vagos (amigable, clara, intuitiva, totalidad)"
+L1-HU06-HU4,ERS,1,HU-06,HU4,Correcto,Menor,ERS-HU4,HU4,,,"Términos vagos (amigable, clara, intuitiva, totalidad)"
+L1-HU08-HU2,ERS,1,HU-08,HU2,Completitud,Menor,ERS-HU2,HU2,,,Sin restricciones declaradas
+L1-HU09-HU2,ERS,1,HU-09,HU2,Correcto,Mayor,ERS-HU2,HU2,,,«Datos coherentes» y «mismo libro» sin definir
+L1-HU09-HU4,ERS,1,HU-09,HU4,Correcto,Menor,ERS-HU4,HU4,,,«Verificado como comprador» sin proceso
+L1-HU11-HU1,ERS,1,HU-11,HU1,Correcto,Mayor,ERS-HU1,HU1,,,Criterio de interfaz no medible
+L1-HU11-HU2,ERS,1,HU-11,HU2,Correcto,Mayor,ERS-HU2,HU2,,,Criterio de interfaz no medible
+L1-HU11-HU3,ERS,1,HU-11,HU3,Correcto,Mayor,ERS-HU3,HU3,,,Criterio de interfaz no medible
+L1-HU11-HU4,ERS,1,HU-11,HU4,Correcto,Mayor,ERS-HU4,HU4,,,Criterio de interfaz no medible
+L1-HU12-HU1,ERS,1,HU-12,HU1,Completitud,Mayor,ERS-HU1,HU1,,,No cubre falla de conexión o servidor
+L1-HU12-HU2,ERS,1,HU-12,HU2,Completitud,Mayor,ERS-HU2,HU2,,,No cubre falla de conexión o servidor
+L1-HU12-HU4,ERS,1,HU-12,HU4,Completitud,Mayor,ERS-HU4,HU4,,,No cubre falla de conexión o servidor
+L1-HU13-HU2,ERS,1,HU-13,HU2,Coherente,Mayor,ERS-HU2,HU2,,,10 minutos frente a 3 s de 2.1.1
+L1-HU13-HU4,ERS,1,HU-13,HU4,Coherente,Menor,ERS-HU4,HU4,,,2 s por carácter frente a 3 s de 2.1.1
+L1-HU15-HU1,ERS,1,HU-15,HU1,Pertinencia,Menor,ERS-HU1,HU1,,,Sin prioridad ni release
+L1-HU15-HU2,ERS,1,HU-15,HU2,Pertinencia,Menor,ERS-HU2,HU2,,,Sin prioridad ni release
+L1-HU15-HU3,ERS,1,HU-15,HU3,Pertinencia,Menor,ERS-HU3,HU3,,,Sin prioridad ni release
+L1-HU15-HU4,ERS,1,HU-15,HU4,Pertinencia,Menor,ERS-HU4,HU4,,,Sin prioridad ni release
+L1-HU17-HU4,ERS,1,HU-17,HU4,Completitud,Menor,ERS-HU4,HU4,,,Sin responsable
+L2-HC02,ERS,2,HC-02,,Coherente,Menor,ERS-11,HU3,,,HU3 es Release 2 en el Brief y está en el Sprint 1
+L2-HC03,ERS,2,HC-03,,Coherente,Mayor,ERS-11,,,,ERS 4 HU frente a 13 HU del DAS en el Sprint 1
+L2-HC04,ERS,2,HC-04,,Coherente,Menor,ERS-HU2|ERS-HU3|ERS-HU4,HU2|HU3|HU4,L1-HU02-HU2|L1-HU02-HU3|L1-HU02-HU4,misma evidencia,Épica con tres nombres
+L2-HC07,ERS,2,HC-07,,Completitud,Menor,ERS-11,2.2.1|2.4.1,,,2.2.1 y 2.4.1 no reflejados en HU
+L2-HC09,ERS,2,HC-09,,Pertinencia,Menor,ERS-11,HU1|HU2|HU3|HU4,L1-HU15-HU1|L1-HU15-HU2|L1-HU15-HU3|L1-HU15-HU4,misma evidencia,Sin prioridad por release
+L2-HC10,ERS,2,HC-10,,Completitud,Menor,ERS-S2,,,,"1.2 Sprint 2 en el índice, ausente en el cuerpo"
+L3-RF01,ERS,3,RF-01,,Completitud,Mayor,ERS-11,,,,Faltan 7 HU del Release 1
+L3-RF02,ERS,3,RF-02,,Completitud,Mayor,ERS-2,,L4-RN12|L4-RN13|L4-RN14|L4-RN15|L4-RN17,misma evidencia,Sin requisitos de Seguridad ni Fiabilidad
+L3-RF03,ERS,3,RF-03,,Completitud,Menor,ERS-HIST,,,,"Portada 1.0, histórico hasta 1.3"
+L3-RF05,ERS,3,RF-05,,Completitud,Mayor,ERS-11,,,,Falta el rol visitante
+L3-RF06,ERS,3,RF-06,,Pertinencia,Menor,ERS-HU1|ERS-HU2|ERS-HU3|ERS-HU4,HU1|HU2|HU3|HU4,,,Sin flujos alternos ni postcondiciones
+L3-RF07,ERS,3,RF-07,,Pertinencia,Mayor,ERS-HU1|ERS-HU2,HU1|HU2,,,Sin atributos del libro ni formato de correo y contraseña
+L3-RF08,ERS,3,RF-08,,Pertinencia,Mayor,ERS-HU1|ERS-HU4,HU1|HU4,,,Alcance de HU1 y HU4 menor al del Brief
+L3-RF09,ERS,3,RF-09,,Correcto,Mayor,ERS-231|ERS-232|ERS-241,2.3.1|2.3.2|2.4.1,L4-RN07|L4-RN08|L4-RN10,misma evidencia,Suplementarios no verificables
+L3-RF10,ERS,3,RF-10,,Correcto,Mayor,ERS-HU2|ERS-HU4,HU2|HU4,L1-HU09-HU2|L1-HU06-HU4,misma evidencia,«Datos coherentes» y «totalidad… sin fallos»
+L3-RF11,ERS,3,RF-11,,Correcto,Menor,ERS-HU1|ERS-HU2|ERS-HU3|ERS-HU4,HU1|HU2|HU3|HU4,L1-HU06-HU1|L1-HU06-HU2|L1-HU06-HU3|L1-HU06-HU4,misma evidencia,Términos vagos
+L3-RF12,ERS,3,RF-12,,Coherente,Mayor,ERS-2,,L4-RN17|L4-RN09,misma evidencia,Sin seguridad ni criterio de navegación
+L3-RF13,ERS,3,RF-13,,Coherente,Mayor,ERS-11,HU3,L2-HC02|L3-RF01,misma evidencia,HU3 de Release 2 y épicas no cubiertas
+L3-RF14,ERS,3,RF-14,,Coherente,Mayor,ERS-HU2|ERS-HU4,HU2|HU4,L1-HU13-HU2|L1-HU13-HU4,misma evidencia,Tiempos incoherentes
+L4-RN02,ERS,4,RN-02,,Completitud,Mayor,ERS-211,2.1.1,,,Sin condiciones de medición
+L4-RN03,ERS,4,RN-03,,Coherente,Mayor,ERS-HU2|ERS-HU4,HU2|HU4,L1-HU13-HU2|L1-HU13-HU4,misma evidencia,Tiempos de HU frente a 2.1.1
+L4-RN05,ERS,4,RN-05,,Completitud,Menor,ERS-221,2.2.1,,,No indica qué se verifica ni dispositivos
+L4-RN07,ERS,4,RN-07,,Correcto,Mayor,ERS-231,2.3.1,,,Errores de usuario sin definir
+L4-RN08,ERS,4,RN-08,,Correcto,Menor,ERS-232,2.3.2,,,«Según corresponda»
+L4-RN09,ERS,4,RN-09,,Correcto,Mayor,ERS-HU1|ERS-HU2|ERS-HU3|ERS-HU4,HU1|HU2|HU3|HU4,L1-HU06-HU1|L1-HU06-HU2|L1-HU06-HU3|L1-HU06-HU4|B-03,misma evidencia,«Amigable» sin medida
+L4-RN10,ERS,4,RN-10,,Completitud,Mayor,ERS-241,2.4.1,,,Transacciones simultáneas sin cantidad
+L4-RN11,ERS,4,RN-11,,Correcto,Menor,ERS-211|ERS-221|ERS-231|ERS-232|ERS-241,2.1.1|2.2.1|2.3.1|2.3.2|2.4.1,,,Sin método de verificación
+L4-RN12,ERS,4,RN-12,,Completitud,Mayor,ERS-2,,,,Sin tasa de fallos
+L4-RN13,ERS,4,RN-13,,Completitud,Mayor,ERS-2,,,,Sin disponibilidad
+L4-RN14,ERS,4,RN-14,,Completitud,Mayor,ERS-2,,,,Sin tolerancia a fallos general
+L4-RN15,ERS,4,RN-15,,Completitud,Mayor,ERS-2,,,,Sin recuperabilidad
+L4-RN16,ERS,4,RN-16,,Coherente,Mayor,ERS-241,2.4.1,,,Transacciones frente a persistencia JSON
+L4-RN17,ERS,4,RN-17,,Coherente,Mayor,ERS-2,,,,Sin requisito de seguridad
+L4-RN18,ERS,4,RN-18,,Coherente,Menor,ERS-211|ERS-221|ERS-231|ERS-232|ERS-241,2.1.1|2.2.1|2.3.1|2.3.2|2.4.1,,,Sin trazabilidad a rangos del Brief
+L5-AR03,DAS,5,AR-03,,Completitud,Mayor,DAS-GEN,,,,Sin sección de stakeholders
+L5-AR04,DAS,5,AR-04,,Completitud,Mayor,DAS-13,,,,Sin factibilidad ni riesgos
+L5-AR05,DAS,5,AR-05,,Completitud,Menor,DAS-GEN,,L5-AR03|L5-AR04,cascada,Consecuencia de AR-03 y AR-04
+L5-AR06,DAS,5,AR-06,,Coherente,Mayor,DAS-13,,,,1.3 no cubre Fiabilidad
+L5-AR07,DAS,5,AR-07,,Completitud,Mayor,DAS-GEN,,,,Sin viewpoints
+L5-AR08,DAS,5,AR-08,,Completitud,Menor,DAS-GEN,C1|C2|C3|C4,L5-AR07,cascada,Consecuencia de AR-07
+L5-AR09,DAS,5,AR-09,,Correcto,Menor,DAS-GEN,,L5-AR07,cascada,Consecuencia de AR-07
+L5-AR10,DAS,5,AR-10,,Completitud,Mayor,DAS-152|DAS-153,,,,Vistas incompletas
+L5-AR11,DAS,5,AR-11,,Correcto,Menor,DAS-151,,,,Contexto sin versión y con BD
+L5-AR12,DAS,5,AR-12,,Completitud,Mayor,DAS-12|DAS-152|DAS-153,,,,"1.2, 1.5.2 y 1.5.3 vacíos o plantilla"
+L5-AR13,DAS,5,AR-13,,Completitud,Mayor,DAS-211|DAS-212|DAS-213|DAS-214|DAS-22,,,,Parte II solo plantilla
+L5-AR14,DAS,5,AR-14,,Coherente,Menor,DAS-GEN,,,,Sin registro de inconsistencias
+L5-AR15,DAS,5,AR-15,,Coherente,Mayor,DAS-21,,,,13 HU en Sprint 1 frente a ERS y Brief
+L5-AR16,DAS,5,AR-16,,Coherente,Mayor,DAS-151,,,,BD en contexto frente a JSON
+L5-AR17,DAS,5,AR-17,,Completitud,Menor,DAS-GEN,,L5-AR07,cascada,Consecuencia de AR-07
+L5-AR18,DAS,5,AR-18,,Completitud,Menor,DAS-14,D1|D2|D3|D4|D5,,,Decisiones sin concerns ni responsable
+L5-AR19,DAS,5,AR-19,,Completitud,Menor,DAS-14,D1|D2|D3|D4|D5,,,Sin alternativas ni consecuencias
+L5-AR20,DAS,5,AR-20,,Pertinencia,Mayor,DAS-14,D5,,,JSON sin justificar frente a fiabilidad
+B-01,Brief,B,B-01,,Coherente,Mayor,BR-IMP|BR-MHU,,,,Mapa de Impacto sin historias en backlog
+B-02,Brief,B,B-02,,Completitud,Mayor,BR-MHU,,,,Sin HU de inicio de sesión
+B-03,Brief,B,B-03,,Correcto,Mayor,BR-RAN,Q1|Q2|Q3|Q4,,,Rangos de calidad no medibles
+B-04,Brief,B,B-04,,Coherente,Menor,BR-HIST,,,,Versión 1.0 repetida
+B-05,Brief,B,B-05,,Completitud,Menor,BR-PLAN,,,,Plan de trabajo solo enlace

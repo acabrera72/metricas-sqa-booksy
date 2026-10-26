@@ -1,0 +1,34 @@
+seccion,artefacto,nombre,incompletitud,fuente_incompletitud,incluir_en_correlacion,inconsistencias,inconsistencias_unicas,defectos_totales,defectos_no_completitud,incompleta_binaria,incompletitud_sin_enlaces_hu
+BR-HIST,Brief,Encabezado e histórico,0,,Sí,1,1,1,1,0,0
+BR-IMP,Brief,Mapa de Impacto,0,,Sí,1,1,1,1,0,0
+BR-MHU,Brief,Mapa de Historias de Usuario,0,,Sí,1,1,2,1,0,0
+BR-RES,Brief,Restricciones,0,,Sí,0,0,0,0,0,0
+BR-RAN,Brief,Rangos de calidad,0,,Sí,0,0,1,1,0,0
+BR-PLAN,Brief,5 Plan de Trabajo,1,Solo un enlace externo (B-05),Sí,0,0,1,0,1,1
+ERS-HIST,ERS,Portada e histórico,0,,Sí,0,0,1,0,0,0
+ERS-11,ERS,1.1 Sprint 1 (conjunto de HU),0,,Sí,3,2,7,4,0,0
+ERS-S2,ERS,1.2 Sprint 2,2,En el índice y ausente en el cuerpo (HC-10),Sí,0,0,1,0,1,2
+ERS-HU1,ERS,HU1 Registrar perfil,1,Diagrama de actividades como enlace externo (verificar si abre),Sí,0,0,9,8,1,0
+ERS-HU2,ERS,HU2 Registrar libro,1,Diagrama de actividades como enlace externo (verificar si abre),Sí,5,2,17,15,1,0
+ERS-HU3,ERS,HU3 Eliminar libro,1,Diagrama de actividades como enlace externo (verificar si abre),Sí,2,1,8,8,1,0
+ERS-HU4,ERS,HU4 Consultar libro,1,Diagrama de actividades como enlace externo (verificar si abre),Sí,5,2,17,15,1,0
+ERS-2,ERS,2 Requisitos suplementarios (conjunto),0,,Sí,2,1,7,2,0,0
+ERS-211,ERS,2.1.1 Desempeño,0,,Sí,1,1,3,2,0,0
+ERS-221,ERS,2.2.1 Compatibilidad,0,,Sí,1,1,3,2,0,0
+ERS-231,ERS,2.3.1 Errores de usuario,0,,Sí,1,1,4,4,0,0
+ERS-232,ERS,2.3.2 Mensajes,0,,Sí,1,1,4,4,0,0
+ERS-241,ERS,2.4.1 Transacciones,0,,Sí,2,2,5,4,0,0
+DAS-HIST,DAS,Encabezado e histórico,1,Marcadores de plantilla «< >» (AR-01),Sí,0,0,0,0,1,1
+DAS-11,DAS,1.1 Restricciones de diseño,0,,Sí,0,0,0,0,0,0
+DAS-12,DAS,1.2 Modelo de dominio,2,Texto de plantilla y solo un enlace (AR-12),Sí,0,0,1,0,1,2
+DAS-13,DAS,1.3 Características,0,,Sí,1,1,2,1,0,0
+DAS-14,DAS,1.4 Decisiones arquitectónicas,0,,Sí,0,0,3,1,0,0
+DAS-151,DAS,1.5.1 Diagrama de contexto,0,,Sí,1,1,2,2,0,0
+DAS-152,DAS,1.5.2 Contenedores,2,Sin contenido (AR-10 y AR-12),Sí,0,0,2,0,1,2
+DAS-153,DAS,1.5.3 Componentes,2,Sin contenido (AR-10 y AR-12),Sí,0,0,2,0,1,2
+DAS-21,DAS,2.1 Sprint 1 (HU declaradas),0,,Sí,1,1,1,1,0,0
+DAS-211,DAS,2.1.1 Vista de datos,2,Solo texto de plantilla (AR-13),Sí,0,0,1,0,1,2
+DAS-212,DAS,2.1.2 Diagrama de clases,2,Solo texto de plantilla (AR-13),Sí,0,0,1,0,1,2
+DAS-213,DAS,2.1.3 Archivos por componente,2,Solo texto de plantilla (AR-13),Sí,0,0,1,0,1,2
+DAS-214,DAS,2.1.4 Interfaces de usuario,2,Solo texto de plantilla (AR-13),Sí,0,0,1,0,1,2
+DAS-22,DAS,2.2 Sprint 2,2,Sin contenido (AR-13),Sí,0,0,1,0,1,2
