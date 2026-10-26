@@ -2,8 +2,6 @@
 
 Script en Python con Pandas que calcula las métricas del Plan de Aseguramiento de la Calidad del Software (PACS, sección 9.2) a partir de los hallazgos de la inspección estática de Brief, ERS y DAS de Booksy UCAB.
 
-Cátedra: Aseguramiento de la Calidad del Software, UCAB. Equipo Estándares Fantásticos - T7.
-
 ## Métricas que calcula
 
 | Métrica | Tipo | Qué mide |
