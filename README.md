@@ -1,4 +1,4 @@
-# Métricas de SQA - Booksy UCAB - Equipo T7
+# Métricas de SQA - Booksy UCAB 
 
 Script en Python con Pandas que calcula las métricas del Plan de Aseguramiento de la Calidad del Software (PACS, sección 9.2) a partir de los hallazgos de la inspección estática de Brief, ERS y DAS de Booksy UCAB.
 
