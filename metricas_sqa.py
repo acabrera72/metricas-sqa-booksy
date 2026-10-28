@@ -175,7 +175,7 @@ def verificacion_ia(h, carpeta):
         })
     tabla = pd.DataFrame(filas).set_index("Artefacto")
     print(tabla.to_string())
-    total = tabla.loc["Total"]
+    total = filas[-1]
     if total["Pendientes"]:
         print(f"Verificación en curso: {total['Pendientes']} de {total['Hallazgos IA (únicos)']} "
               "hallazgos sin revisar; las cifras son parciales.")
