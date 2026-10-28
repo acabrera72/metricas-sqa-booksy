@@ -111,7 +111,7 @@ def cep(a):
     completas = (ejec == "Ejecutada").sum()
     parciales = (ejec == "Parcial").sum()
     variantes = {
-        "Estado en Jira (24/10/2026)": terminadas_jira / n * 100,
+        "Estado en Jira (28/10/2026)": terminadas_jira / n * 100,
         "Evidencia, solo ejecutadas": completas / n * 100,
         "Evidencia, parciales = 0.5": (completas + 0.5 * parciales) / n * 100,
         "Evidencia, parciales = ejecutadas": (completas + parciales) / n * 100,
@@ -180,8 +180,9 @@ def cci(h, s, tabla_art):
     for nombre, x, y in pruebas:
         rho, p_s = stats.spearmanr(datos[x], datos[y])
         r, p_p = stats.pearsonr(datos[x], datos[y])
-        resultados.append({"Prueba": nombre, "Spearman rho": round(rho, 3), "p (Spearman)": round(p_s, 4),
-                           "Pearson r": round(r, 3), "p (Pearson)": round(p_p, 4)})
+        resultados.append({"Prueba": nombre, "Coef. Spearman (ρ)": round(rho, 3), "Valor p Spearman": round(p_s, 4),
+                           "Coef. Pearson (r)": round(r, 3), "Valor p Pearson": round(p_p, 4),
+                           "¿Significativa? (p < 0,05)": "Sí" if p_s < 0.05 else "No"})
     res = pd.DataFrame(resultados).set_index("Prueba")
     print(res.to_string())
     print("\nPor artefacto (Spearman, principal):")

@@ -47,18 +47,18 @@ Brief             9           0.56        0.56                  0.11            
 Umbrales: DDE <= 0.15; EIC >= 80.0%
 
 == CEP: Cobertura de Ejecución del PACS ==
-Estado en Jira (24/10/2026): 0.0% -> No cumple (umbral >= 90%)
+Estado en Jira (28/10/2026): 71.4% -> No cumple (umbral >= 90%)
 Evidencia, solo ejecutadas: 28.6% -> No cumple (umbral >= 90%)
 Evidencia, parciales = 0.5: 50.0% -> No cumple (umbral >= 90%)
 Evidencia, parciales = ejecutadas: 71.4% -> No cumple (umbral >= 90%)
- clave                                       actividad estado_jira ejecucion_por_evidencia                 responsable_jira
- KAN-4                      Establecer procesos de SQA    En curso               Ejecutada     Víctor Manuel Ramos González
- KAN-5              Documentar la planificación de SQA    En curso               Ejecutada     Víctor Manuel Ramos González
- KAN-6               Evaluar el producto (Brief y ERS)    En curso                 Parcial Gilberto Gabriel Moncada Delgado
- KAN-7                       Evaluar el producto (DAS)    En curso                 Parcial Gilberto Gabriel Moncada Delgado
- KAN-8 Ejecutar el plan SQA (Jira; RCA; re-inspección)    En curso            No ejecutada                      Sin asignar
- KAN-9                Medición de productos y procesos    En curso                 Parcial      Antonio José Cabrera Lezama
-KAN-10                  Gestionar los registros de SQA    En curso            No ejecutada                      Sin asignar
+ clave                                       actividad      estado_jira ejecucion_por_evidencia                     responsable_jira
+ KAN-4                      Establecer procesos de SQA       Finalizada               Ejecutada Carmelo Alessandro Moschella Andrade
+ KAN-5              Documentar la planificación de SQA       Finalizada               Ejecutada     Gilberto Gabriel Moncada Delgado
+ KAN-6               Evaluar el producto (Brief y ERS)       Finalizada                 Parcial     Gilberto Gabriel Moncada Delgado
+ KAN-7                       Evaluar el producto (DAS)       Finalizada                 Parcial Carmelo Alessandro Moschella Andrade
+ KAN-8 Ejecutar el plan SQA (Jira; RCA; re-inspección)         En curso            No ejecutada                          Sin asignar
+ KAN-9                Medición de productos y procesos Tareas por hacer                 Parcial     Gilberto Gabriel Moncada Delgado
+KAN-10                  Gestionar los registros de SQA       Finalizada            No ejecutada                          Sin asignar
 
 == EDD: Eficacia de Detección de Defectos ==
 Defectos únicos detectados en la inspección estática: 68
@@ -113,14 +113,14 @@ DAS-HIST              1                0                       0                
 Excluidas: DAS-GEN (7 registros sin sección medible)
 
 -- Correlaciones --
-                                                   Spearman rho  p (Spearman)  Pearson r  p (Pearson)
-Prueba                                                                                               
-Principal: incompletitud (0-2) vs inconsistencias        -0.477        0.0050     -0.246       0.1671
-Inconsistencias únicas (sin duplicados)                  -0.520        0.0019     -0.484       0.0044
-Incompletitud binaria vs inconsistencias                 -0.371        0.0337     -0.055       0.7592
-Sin contar enlaces de diagramas de HU                    -0.642        0.0001     -0.464       0.0066
-Incompletitud vs defectos totales                        -0.171        0.3415     -0.051       0.7795
-Incompletitud vs defectos que no son Completitud         -0.466        0.0063     -0.092       0.6121
+                                                   Coef. Spearman (ρ)  Valor p Spearman  Coef. Pearson (r)  Valor p Pearson ¿Significativa? (p < 0,05)
+Prueba                                                                                                                                                
+Principal: incompletitud (0-2) vs inconsistencias              -0.477            0.0050             -0.246           0.1671                         Sí
+Inconsistencias únicas (sin duplicados)                        -0.520            0.0019             -0.484           0.0044                         Sí
+Incompletitud binaria vs inconsistencias                       -0.371            0.0337             -0.055           0.7592                         Sí
+Sin contar enlaces de diagramas de HU                          -0.642            0.0001             -0.464           0.0066                         Sí
+Incompletitud vs defectos totales                              -0.171            0.3415             -0.051           0.7795                         No
+Incompletitud vs defectos que no son Completitud               -0.466            0.0063             -0.092           0.6121                         Sí
 
 Por artefacto (Spearman, principal):
   ERS: n = 13, rho = 0.036, p = 0.9069
@@ -134,4 +134,4 @@ incompletitud
 1                  6  2.00   12
 2                  9  0.00    0
 
-Resultados guardados en /home/claude/repo_sqa/resultados
+Resultados guardados en resultados
