@@ -3,7 +3,9 @@ Métricas de calidad del PACS (sección 9.2) - Booksy UCAB, Equipo T7.
 
 Calcula DDE, EIC, FNC, CEP, EDD y CCI a partir de los datos de la carpeta
 datos/. Los hallazgos provienen del Informe de Revisiones (prerrevisión con IA);
-las cifras son válidas solo después de la verificación manual del equipo.
+las cifras son válidas solo después de la verificación manual del equipo, cuyo
+avance y resultado (EDD y precisión de la IA) se calculan con verificacion.csv
+y defectos_nuevos.csv.
 
 Uso:
     python metricas_sqa.py            # usa la carpeta datos/ junto al script
@@ -111,7 +113,7 @@ def cep(a):
     completas = (ejec == "Ejecutada").sum()
     parciales = (ejec == "Parcial").sum()
     variantes = {
-        "Estado en Jira (24/10/2026)": terminadas_jira / n * 100,
+        "Estado en Jira (28/10/2026)": terminadas_jira / n * 100,
         "Evidencia, solo ejecutadas": completas / n * 100,
         "Evidencia, parciales = 0.5": (completas + 0.5 * parciales) / n * 100,
         "Evidencia, parciales = ejecutadas": (completas + parciales) / n * 100,
@@ -129,6 +131,61 @@ def edd(h):
     print("Defectos de los mismos artefactos detectados en fases posteriores: no disponible")
     print("EDD = N/D. Con 0 defectos posteriores daría 100% por construcción, valor sin significado.")
     print("Se calcula al cerrar las fases de construcción y pruebas (PACS 9.2).")
+
+
+def verificacion_ia(h, carpeta):
+    """EDD y precisión de la prerrevisión con IA frente a la verificación manual (PACS 7.2).
+
+    verificacion.csv marca cada hallazgo de la IA como confirmado, falso_positivo
+    o pendiente; defectos_nuevos.csv lista los defectos que el equipo encontró y
+    la IA no. Se cuentan solo los defectos únicos (sin duplicados).
+    """
+    print("\n== Verificación manual de la prerrevisión con IA ==")
+    ruta_v, ruta_n = carpeta / "verificacion.csv", carpeta / "defectos_nuevos.csv"
+    if not ruta_v.exists():
+        print("Sin verificacion.csv: no hay datos de verificación manual.")
+        return None
+    v = pd.read_csv(ruta_v, dtype=str, keep_default_na=False)
+    v["resultado"] = v["resultado"].str.strip().str.lower()
+    validos = {"confirmado", "falso_positivo", "pendiente"}
+    malos = v[~v["resultado"].isin(validos)]
+    if len(malos):
+        print(f"Aviso: valores no válidos en 'resultado' ({', '.join(malos['id'])}); "
+              f"se tratan como pendiente. Usa: {', '.join(sorted(validos))}")
+        v.loc[malos.index, "resultado"] = "pendiente"
+    faltan = set(h["id"]) - set(v["id"])
+    if faltan:
+        print(f"Aviso: {len(faltan)} hallazgos no están en verificacion.csv; se tratan como pendiente.")
+    unicos = h.loc[h["unico"], ["id", "artefacto"]].merge(v[["id", "resultado"]], on="id", how="left")
+    unicos["resultado"] = unicos["resultado"].fillna("pendiente")
+    nuevos = pd.read_csv(ruta_n, dtype=str, keep_default_na=False) if ruta_n.exists() else pd.DataFrame(columns=["artefacto"])
+
+    filas = []
+    for art in ARTEFACTOS + ["Total"]:
+        d = unicos if art == "Total" else unicos[unicos["artefacto"] == art]
+        n_nuevos = len(nuevos) if art == "Total" else int((nuevos["artefacto"] == art).sum())
+        conf = int((d["resultado"] == "confirmado").sum())
+        fp = int((d["resultado"] == "falso_positivo").sum())
+        pend = int((d["resultado"] == "pendiente").sum())
+        filas.append({
+            "Artefacto": art, "Hallazgos IA (únicos)": len(d), "Confirmados": conf,
+            "Falsos positivos": fp, "Pendientes": pend, "Nuevos del equipo": n_nuevos,
+            "Precisión IA %": round(conf / (conf + fp) * 100, 1) if conf + fp else None,
+            "EDD IA %": round(conf / (conf + n_nuevos) * 100, 1) if conf + n_nuevos else None,
+        })
+    tabla = pd.DataFrame(filas).set_index("Artefacto")
+    print(tabla.to_string())
+    total = tabla.loc["Total"]
+    if total["Pendientes"]:
+        print(f"Verificación en curso: {total['Pendientes']} de {total['Hallazgos IA (únicos)']} "
+              "hallazgos sin revisar; las cifras son parciales.")
+    else:
+        edd_ia = total["EDD IA %"]
+        if edd_ia is not None:
+            print(f"EDD de la IA: {edd_ia}% -> {estado(edd_ia >= UMBRAL_EDD)} (umbral >= {UMBRAL_EDD:.0f}%)")
+    print("Precisión = confirmados / (confirmados + falsos positivos); "
+          "EDD IA = confirmados / (confirmados + nuevos del equipo).")
+    return tabla
 
 
 def cci(h, s, tabla_art):
@@ -180,8 +237,9 @@ def cci(h, s, tabla_art):
     for nombre, x, y in pruebas:
         rho, p_s = stats.spearmanr(datos[x], datos[y])
         r, p_p = stats.pearsonr(datos[x], datos[y])
-        resultados.append({"Prueba": nombre, "Spearman rho": round(rho, 3), "p (Spearman)": round(p_s, 4),
-                           "Pearson r": round(r, 3), "p (Pearson)": round(p_p, 4)})
+        resultados.append({"Prueba": nombre, "Coef. Spearman (ρ)": round(rho, 3), "Valor p Spearman": round(p_s, 4),
+                           "Coef. Pearson (r)": round(r, 3), "Valor p Pearson": round(p_p, 4),
+                           "¿Significativa? (p < 0,05)": "Sí" if p_s < 0.05 else "No"})
     res = pd.DataFrame(resultados).set_index("Prueba")
     print(res.to_string())
     print("\nPor artefacto (Spearman, principal):")
@@ -207,10 +265,13 @@ def main():
     tabla = dde_eic(h, u)
     cep(a)
     edd(h)
+    verif = verificacion_ia(h, carpeta)
     datos, res = cci(h, s, tabla)
     salida = carpeta.parent / "resultados"
     salida.mkdir(exist_ok=True)
     tabla.to_csv(salida / "dde_eic.csv")
+    if verif is not None:
+        verif.to_csv(salida / "verificacion_ia.csv")
     datos.to_csv(salida / "cci_datos_por_seccion.csv", index=False)
     res.to_csv(salida / "cci_correlaciones.csv")
     print(f"\nResultados guardados en {salida}")
