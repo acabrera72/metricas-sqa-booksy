@@ -4,8 +4,8 @@ Métricas de calidad del PACS (sección 9.2) - Booksy UCAB, Equipo T7.
 Calcula DDE, EIC, FNC, CEP, EDD y CCI a partir de los datos de la carpeta
 datos/. Los hallazgos provienen del Informe de Revisiones (prerrevisión con IA);
 las cifras son válidas solo después de la verificación manual del equipo, cuyo
-avance y resultado (EDD y precisión de la IA) se calculan con verificacion.csv
-y defectos_nuevos.csv.
+avance y resultado (EDD y precisión de la IA) se calculan con verificacion.xlsx
+(o, en su defecto, verificacion.csv y defectos_nuevos.csv).
 
 Uso:
     python metricas_sqa.py            # usa la carpeta datos/ junto al script
@@ -133,20 +133,41 @@ def edd(h):
     print("Se calcula al cerrar las fases de construcción y pruebas (PACS 9.2).")
 
 
+def leer_verificacion(carpeta):
+    """Lee la verificación desde verificacion.xlsx (hojas «Verificación» y «Defectos nuevos»)
+    o, si no existe, desde verificacion.csv y defectos_nuevos.csv. Devuelve (v, nuevos, fuente)."""
+    xlsx = carpeta / "verificacion.xlsx"
+    if xlsx.exists():
+        v = pd.read_excel(xlsx, sheet_name="Verificación", dtype=str).fillna("")
+        nuevos = pd.read_excel(xlsx, sheet_name="Defectos nuevos", dtype=str).fillna("")
+        return v, nuevos, xlsx.name
+    ruta_v, ruta_n = carpeta / "verificacion.csv", carpeta / "defectos_nuevos.csv"
+    if not ruta_v.exists():
+        return None, None, None
+    v = pd.read_csv(ruta_v, dtype=str, keep_default_na=False)
+    nuevos = (pd.read_csv(ruta_n, dtype=str, keep_default_na=False) if ruta_n.exists()
+              else pd.DataFrame(columns=["artefacto"]))
+    return v, nuevos, ruta_v.name
+
+
 def verificacion_ia(h, carpeta):
     """EDD y precisión de la prerrevisión con IA frente a la verificación manual (PACS 7.2).
 
-    verificacion.csv marca cada hallazgo de la IA como confirmado, falso_positivo
-    o pendiente; defectos_nuevos.csv lista los defectos que el equipo encontró y
-    la IA no. Se cuentan solo los defectos únicos (sin duplicados).
+    Cada hallazgo de la IA se marca como confirmado, falso_positivo o pendiente, y
+    se listan aparte los defectos que el equipo encontró y la IA no. Se cuentan
+    solo los defectos únicos (sin duplicados).
     """
     print("\n== Verificación manual de la prerrevisión con IA ==")
-    ruta_v, ruta_n = carpeta / "verificacion.csv", carpeta / "defectos_nuevos.csv"
-    if not ruta_v.exists():
-        print("Sin verificacion.csv: no hay datos de verificación manual.")
+    v, nuevos, fuente = leer_verificacion(carpeta)
+    if v is None:
+        print("Sin verificacion.xlsx ni verificacion.csv: no hay datos de verificación manual.")
         return None
-    v = pd.read_csv(ruta_v, dtype=str, keep_default_na=False)
-    v["resultado"] = v["resultado"].str.strip().str.lower()
+    print(f"Fuente: {fuente}")
+    v["resultado"] = v["resultado"].str.strip().str.lower().str.replace(" ", "_")
+    v.loc[v["resultado"] == "", "resultado"] = "pendiente"
+    canon = {a.lower(): a for a in ARTEFACTOS}
+    nuevos["artefacto"] = nuevos["artefacto"].str.strip().str.lower().map(canon)
+    nuevos = nuevos[nuevos["artefacto"].notna()]
     validos = {"confirmado", "falso_positivo", "pendiente"}
     malos = v[~v["resultado"].isin(validos)]
     if len(malos):
@@ -155,10 +176,9 @@ def verificacion_ia(h, carpeta):
         v.loc[malos.index, "resultado"] = "pendiente"
     faltan = set(h["id"]) - set(v["id"])
     if faltan:
-        print(f"Aviso: {len(faltan)} hallazgos no están en verificacion.csv; se tratan como pendiente.")
+        print(f"Aviso: {len(faltan)} hallazgos no están en {fuente}; se tratan como pendiente.")
     unicos = h.loc[h["unico"], ["id", "artefacto"]].merge(v[["id", "resultado"]], on="id", how="left")
     unicos["resultado"] = unicos["resultado"].fillna("pendiente")
-    nuevos = pd.read_csv(ruta_n, dtype=str, keep_default_na=False) if ruta_n.exists() else pd.DataFrame(columns=["artefacto"])
 
     filas = []
     for art in ARTEFACTOS + ["Total"]:

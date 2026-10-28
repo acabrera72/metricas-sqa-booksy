@@ -23,8 +23,7 @@ datos/
   unidades.csv           Unidades de análisis de DDE y EIC (9 por artefacto)
   secciones.csv          Secciones de cada artefacto y su grado de incompletitud (CCI)
   actividades.csv        Actividades del PACS con su estado en Jira y su evidencia (CEP)
-  verificacion.csv       Resultado de la verificación manual de cada hallazgo de la IA
-  defectos_nuevos.csv    Defectos que encontró el equipo y la IA no
+  verificacion.xlsx      Plantilla de la verificación manual (listas desplegables y resumen automático)
 resultados/              Salidas generadas por el script
 ```
 
@@ -39,14 +38,12 @@ El script lee la carpeta `datos/`, imprime los resultados y guarda las tablas en
 
 ## Verificación manual de la prerrevisión con IA
 
+Se hace en `datos/verificacion.xlsx` (LibreOffice Calc o Excel). Las celdas amarillas se llenan con la flecha de la celda, sin escribir a mano:
+
 1. Revisar el Brief, el ERS y el DAS con las listas de chequeo, de preferencia sin mirar antes los hallazgos de la IA.
-2. En `datos/verificacion.csv`, cambiar la columna `resultado` de cada hallazgo:
-   - `confirmado`: es un defecto real.
-   - `falso_positivo`: la IA lo marcó, pero no es un defecto.
-   - `pendiente`: aún sin revisar (valor inicial).
-   Las filas con `cuenta_en_metricas = No (duplicado)` no entran en el cálculo; basta con revisar sus originales.
-3. Anotar en `datos/defectos_nuevos.csv` cada defecto que el equipo encontró y la IA no, con su artefacto, criterio y severidad.
-4. Ejecutar el script. La sección "Verificación manual de la prerrevisión con IA" muestra, por artefacto:
+2. Hoja **Verificación**: en la columna `resultado` de cada hallazgo elegir `confirmado` (defecto real), `falso_positivo` (no es defecto) o dejar `pendiente`. Las filas grises (duplicados) no cuentan; basta con revisar su original.
+3. Hoja **Defectos nuevos**: una fila por cada defecto que el equipo encontró y la IA no (falso negativo). Solo `artefacto` es obligatorio; `criterio`, `severidad` y `evidencia` son recomendables.
+4. La hoja **Resumen** muestra el avance al momento. Al terminar, guardar como `.xlsx` y ejecutar `python metricas_sqa.py`, que imprime y guarda `resultados/verificacion_ia.csv`:
    - **Precisión IA** = confirmados / (confirmados + falsos positivos)
    - **EDD IA** = confirmados / (confirmados + nuevos del equipo)
 

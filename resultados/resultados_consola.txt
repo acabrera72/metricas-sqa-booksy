@@ -67,6 +67,7 @@ EDD = N/D. Con 0 defectos posteriores daría 100% por construcción, valor sin s
 Se calcula al cerrar las fases de construcción y pruebas (PACS 9.2).
 
 == Verificación manual de la prerrevisión con IA ==
+Fuente: verificacion.xlsx
            Hallazgos IA (únicos)  Confirmados  Falsos positivos  Pendientes  Nuevos del equipo Precisión IA % EDD IA %
 Artefacto                                                                                                             
 ERS                           49            0                 0          49                  0           None     None
