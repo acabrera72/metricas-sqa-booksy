@@ -66,6 +66,16 @@ Defectos de los mismos artefactos detectados en fases posteriores: no disponible
 EDD = N/D. Con 0 defectos posteriores daría 100% por construcción, valor sin significado.
 Se calcula al cerrar las fases de construcción y pruebas (PACS 9.2).
 
+== Verificación manual de la prerrevisión con IA ==
+           Hallazgos IA (únicos)  Confirmados  Falsos positivos  Pendientes  Nuevos del equipo Precisión IA % EDD IA %
+Artefacto                                                                                                             
+ERS                           49            0                 0          49                  0           None     None
+DAS                           14            0                 0          14                  0           None     None
+Brief                          5            0                 0           5                  0           None     None
+Total                         68            0                 0          68                  0           None     None
+Verificación en curso: 68 de 68 hallazgos sin revisar; las cifras son parciales.
+Precisión = confirmados / (confirmados + falsos positivos); EDD IA = confirmados / (confirmados + nuevos del equipo).
+
 == CCI: Comparación y Correlación de Completitud e Inconsistencias ==
 
 -- Comparación entre artefactos --
