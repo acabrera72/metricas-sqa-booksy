@@ -1,0 +1,28 @@
+unidad,artefacto,tipo,descripcion
+HU1,ERS,Historia de usuario,Registrar perfil
+HU2,ERS,Historia de usuario,Registrar libro
+HU3,ERS,Historia de usuario,Eliminar libro
+HU4,ERS,Historia de usuario,Consultar libro
+2.1.1,ERS,Requisito suplementario,Eficiencia de desempeño
+2.2.1,ERS,Requisito suplementario,Compatibilidad
+2.3.1,ERS,Requisito suplementario,Protección ante errores del usuario
+2.3.2,ERS,Requisito suplementario,Mensajes de error y éxito
+2.4.1,ERS,Requisito suplementario,Transacciones simultáneas
+C1,DAS,Característica (1.3),Autenticación
+C2,DAS,Característica (1.3),Escalabilidad
+C3,DAS,Característica (1.3),Usabilidad
+C4,DAS,Característica (1.3),Adaptabilidad
+D1,DAS,Decisión (1.4),Decisión N°1
+D2,DAS,Decisión (1.4),Decisión N°2
+D3,DAS,Decisión (1.4),Decisión N°3
+D4,DAS,Decisión (1.4),Decisión N°4
+D5,DAS,Decisión (1.4),Decisión N°5 (persistencia JSON)
+R1,Brief,Restricción,Solo web
+R2,Brief,Restricción,Comunidad UCAB Caracas
+R3,Brief,Restricción,Público hispanohablante
+R4,Brief,Restricción,Sin comunicación interna
+R5,Brief,Restricción,Quinta restricción (confirmar en el Brief)
+Q1,Brief,Rango de calidad,Interfaz amigable y fácil de navegar
+Q2,Brief,Rango de calidad,Robusto ante fallos de entrada de datos
+Q3,Brief,Rango de calidad,Seguridad básica
+Q4,Brief,Rango de calidad,Portable a navegadores modernos
